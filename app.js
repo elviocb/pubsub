@@ -2,7 +2,8 @@
 
 var express = require('express'),
     bodyParser = require('body-parser'),
-    app = express();
+    app = express(),
+    badges = require('./controllers/badges');
 
 // app.use() is used to define a middleware to the request. Therefore the request will have to pass trough the middleware before reach the route.
 /* The express.json() will return the middleware that will parse the incoming request body and checks whether the body request is acceptable or not*/
