@@ -9,6 +9,10 @@ exports.save = function(req, res, next){
   // basically, when "next" is involked it says: "I'm done with this controller, move to the next one."
 	// For security reasons, we will clone the req.body to prevent inusited changes into the req.body object
 	var badges = _.clone(req.body);
+	model.save(badges, function(err){
+		if (err) return res.json(500, {error: true});
+		next();
+	});
 };
 
 // Send badges to pub/sub socket in model
